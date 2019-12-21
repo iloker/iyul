@@ -261,7 +261,7 @@ def dice(ws,ls):
        print ("")
        os.system("termux-toast Betting Stop")
        sys.exit()
-r = c.get(url,headers=ua,data={"a": "Login","Key": "7ec7f8a2c9724b2cbb8ed75e72b47ee9","Username": obj["Account"]["Username"],"Password": obj["Account"]["Password"],"Totp": ""})
+r = c.get(url,headers=ua,data={"a": "Login","Key": "fd142a8fafd643cfbcf55608d6b6dac1","Username": obj["Account"]["Username"],"Password": obj["Account"]["Password"],"Totp": ""})
 js = json.loads(r.text)
 try:
   print (hijau+"Balance "+abu2+": "+res+str(float(js["Doge"]["Balance"])/(10 ** 8)))
