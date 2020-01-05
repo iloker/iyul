@@ -24,8 +24,7 @@ with open('config.json', 'r') as myfile:
 # parse file
 obj = json.loads(data)
 
-
-print (Style.NORMAL+Fore.MAGENTA+"      ___  _           ___       __\n     / _ \(_)______   / _ )___  / /_\n    / // / / __/ -_) / _  / _ \/ __/\n   /____/_/\__/\__/ /____/\___/\__/"+Style.NORMAL+Fore.GREEN+"\n=======================================\n"+Style.BRIGHT+Fore.GREEN+"Author By  "+Style.DIM+Fore.WHITE+": "+Style.RESET_ALL+"Kadal15\n"+Style.BRIGHT+Fore.GREEN+"Channel Yt "+Style.NORMAL+Fore.WHITE+":"+Style.RESET_ALL+" Jejaka Tutorial"+Style.BRIGHT+Fore.GREEN+"\n999 Dice Bot"+Style.NORMAL+Fore.WHITE+" | "+Style.BRIGHT+Fore.RED+"Lose Streak "+Style.NORMAL+Fore.WHITE+"|"+Style.BRIGHT+Fore.GREEN+" Win Streak\n"+Style.BRIGHT+Fore.GREEN+"support by botakberambut(hijrah) And All Termux Id Member\n"+Style.BRIGHT+Fore.GREEN+"Donate "+Style.NORMAL+Fore.WHITE+":"+Style.BRIGHT+Fore.GREEN+" BTC "+Style.RESET_ALL+"18961sqv9fPuBcEbbi1gHub8ydWePB8yaG\n"+Style.BRIGHT+Fore.GREEN+"         LTC "+Style.RESET_ALL+"LNRkk6o9h1Rh98sDW8byeH9HbeUHwNohDu\n"+Style.BRIGHT+Fore.GREEN+"         Doge "+Style.RESET_ALL+"DJG4YG3ARUkSt9e5xvHvSS3faVx3v1HM9p\n\n")
+print(hijau+"Bot 999Dice\nDonasi ke yang membutuhkan")
 
 hijau = Style.BRIGHT+Fore.GREEN
 
@@ -190,9 +189,6 @@ def dice(ws,ls):
         }
         if prof > float(obj["Target Profit"]):
            print (hijau+"\nYay.! \nProfit Mencapai Target.....!\n"+hijau+"Profit "+res+str(prof))
-           os.system("termux-toast You win "+str(prof))
-           time.sleep(1)
-           os.system("termux-toast Total Balance "+str(float(int(jsn["StartingBalance"]) + int(jum))/(10 ** 8)))
            sys.exit()
         r1 = c.post(url,headers=ua,data=data)
         jsn = json.loads(r1.text)
@@ -201,16 +197,10 @@ def dice(ws,ls):
         if jsn["StartingBalance"] > ws:
            print (ungu+"["+res+str(rolebet)+ungu+"] "+hijau2+str(float(amount)/(10 ** 8)),res+str(float(int(jsn["StartingBalance"]) + int(jum))/(10 ** 8)),hijau2+"Profit",res+str(prof))
            print (hijau+"Yay.!\nBalance Sudah Memenuhi Target.....!")
-           os.system("termux-toast Target Win Sudah Tercapai")
-           time.sleep(1)
-           os.system("termux-toast Total Balance "+str(float(int(jsn["StartingBalance"]) + int(jum))/(10 ** 8)))
            sys.exit()
         if jsn["StartingBalance"] < ls:
            print (ungu+"["+res+str(rolebet)+ungu+"]"+red2+"-"+str(float(amount)/(10 ** 8)),res+str((float(int(jsn["StartingBalance"]) + int(jum))/(10 ** 8))),red2+"Lose ",res+str(prof))
            print (Style.BRIGHT+Fore.RED+"Lose Target....!")
-           os.system("termux-toast Lose Target ")
-           time.sleep(1)
-           os.system("termux-toast Total Balance "+str(float(int(jsn["StartingBalance"]) + int(jum))/(10 ** 8)))
            sys.exit()
         if jsn["PayOut"] is not 0:
            no_win +=1
@@ -259,14 +249,13 @@ def dice(ws,ls):
 
    except:
        print ("")
-       os.system("termux-toast Betting Stop")
        sys.exit()
 r = c.get(url,headers=ua,data={"a": "Login","Key": "fd142a8fafd643cfbcf55608d6b6dac1","Username": obj["Account"]["Username"],"Password": obj["Account"]["Password"],"Totp": ""})
 js = json.loads(r.text)
 try:
   print (hijau+"Balance "+abu2+": "+res+str(float(js["Doge"]["Balance"])/(10 ** 8)))
 except:
-  print ("Check Your Username And Your Password")
+  print (red+"GAGAL LOGIN :(")
   sys.exit()
 
 if float(js["Doge"]["Balance"])/(10 ** 8) > float(500000000000000000000000000.00000000):
